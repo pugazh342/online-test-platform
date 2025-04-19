@@ -1,0 +1,78 @@
+/* css/style.css */
+body {
+    background: #f0f4f8;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .container {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    width: 300px;
+    text-align: center;
+  }
+  input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+  }
+  .btns {
+    display: flex;
+    justify-content: space-between;
+  }
+  button {
+    flex: 1;
+    margin: 5px;
+    padding: 10px;
+    border: none;
+    background: #007bff;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  #message {
+    margin-top: 15px;
+    color: red;
+  }
+  /* Add these styles to your existing CSS */
+.spinner {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+#message {
+  margin-top: 1rem;
+  padding: 0.5rem;
+  border-radius: 4px;
+  display: none;
+}
+
+input:invalid {
+  border-color: #e74c3c;
+}
+
+/* Offline indicator */
+.offline-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #e74c3c;
+  color: white;
+  padding: 0.5rem;
+  text-align: center;
+  z-index: 1000;
+}

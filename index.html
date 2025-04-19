@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login | Online Test</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- Add these meta tags -->
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self' https://*.firebaseio.com https://www.googleapis.com https://www.gstatic.com;
+    script-src 'self' 'unsafe-eval' https://www.gstatic.com;
+    connect-src 'self' https://*.googleapis.com https://*.firebaseio.com wss://*.firebaseio.com;
+    style-src 'self' 'unsafe-inline';
+    font-src 'self' https://fonts.gstatic.com;
+    img-src 'self' data: https://*.googleapis.com https://*.gstatic.com;
+  ">
+</head>
+<body>
+  <div class="container">
+    <h2>Login / Sign Up</h2>
+    <input type="email" id="email" placeholder="Email" required />
+    <input type="password" id="password" placeholder="Password" required />
+    <div class="btns">
+      <button id="loginBtn">Login</button>
+      <button id="signupBtn">Sign Up</button>
+    </div>
+    <p id="message"></p>
+  </div>
+
+  <!-- Load Firebase SDKs first -->
+  <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore-compat.js"></script>
+  
+  <!-- Then load your modules -->
+  <script type="module" src="js/auth.js"></script>
+</body>
+
+<!-- Add this right after <body> -->
+  <div id="offlineBanner" class="offline-banner" style="display: none;">
+    You are currently offline. Some features may not be available.
+  </div>
+  
+  <script>
+    // Simple offline detection
+    window.addEventListener('load', () => {
+      const offlineBanner = document.getElementById('offlineBanner');
+      
+      function updateOnlineStatus() {
+        if (navigator.onLine) {
+          offlineBanner.style.display = 'none';
+        } else {
+          offlineBanner.style.display = 'block';
+        }
+      }
+      
+      window.addEventListener('online', updateOnlineStatus);
+      window.addEventListener('offline', updateOnlineStatus);
+      updateOnlineStatus();
+    });
+  </script>
+</html>

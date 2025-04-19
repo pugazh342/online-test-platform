@@ -1,0 +1,11 @@
+online-test-platform/
+│
+├── index.html         ← Login/Signup page
+├── dashboard.html      ← After login
+│
+├── /css
+│   └── style.css
+│
+└── /js
+    ├── firebase-config.js
+    └── auth.js
